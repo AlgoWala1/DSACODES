@@ -12,21 +12,22 @@ int priority(char op)
     {
         return 2;
     }
+    
 }
 int main()
 {
     int i = 0;
-    char check,t;
-    stack<int> st;
-    stack<int> out;
+    char t;
+    stack<char> rev;
+    stack<char> st;
+    stack<char> out;
     string instring;
     cout<<" Enter input infix string:";
     cin>>instring;
     for (i = 0;i < instring.length();i++)
     {
         t = instring[i];
-        cout<<"got here";
-        if(t == '+' || t == '-' || t == '*'||t == '/')
+       if(t == '+' || t == '-' || t == '*'||t == '/')
         {
         if (!st.empty())
         {
@@ -52,7 +53,19 @@ int main()
             out.push(t);
         }
     }
+    //simply push
+    while(!st.empty()){
+        out.push(st.top());
+        st.pop();
+    }
+    //Reverse the string output(which is another stack)
     while(!out.empty()){
-        cout<<out.top();
+        rev.push(out.top());
+        out.pop();
+    }
+    while(!rev.empty())
+    {
+        cout<<rev.top();
+        rev.pop();
     }
 }
