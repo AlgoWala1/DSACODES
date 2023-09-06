@@ -18,7 +18,7 @@ class myQueue{
         {
             cout<<"Queue is empty";
         }
-        else{
+    else{
             c = arr[front];
             arr[front] = -1;
             if (front == this->size-1)
