@@ -34,11 +34,12 @@ void insertAtTail(LinkedList* &h,int newdata)
 }
 void print(LinkedList* h)
 {
+    LinkedList* ele = h
     cout<<"The list is: ";
-    while(h != NULL)
+    while(ele != NULL)
     {
-        cout<<h->data<<" ";
-        h = h->next;
+        cout<<ele->data<<" ";
+        ele = ele->next;
     }
     cout<<endl;
 }
