@@ -62,9 +62,9 @@ class LinkedList{
 };
 int main()
 {
-    LinkedList *head = new LinkedList('M');
-    head->append(head,'E');
-    head->append(head,'E');
-    head->append(head,'M');
+    LinkedList *head = new LinkedList('O');
+    head->append(head,'T');
+    head->append(head,'T');
+    head->append(head,'O');
     head->isPalindrome(head);
 }
