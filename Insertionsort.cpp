@@ -30,12 +30,12 @@ int main()
                       toSort[j] = toSort[j-1];
                   }
                   toSort[0] = swap;
-              pass++
+              pass++;
               break;
               }
 
           }
-        else if(toSort[k]>toSort[j])//switch position with one after j
+        else if(toSort[k]>toSort[j])//switch position with one after j(if no switch required code wouldnt enter loop)
           { 
             int b = j+1;
             swap = toSort[k];
@@ -44,7 +44,6 @@ int main()
                 toSort[j] = toSort[j-1];
             }
             toSort[b] = swap;
-            pass++
             break;
           }
           else
