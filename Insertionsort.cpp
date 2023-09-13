@@ -1,10 +1,10 @@
 #include<iostream>
 using namespace std;
-#define SIZE 8
+#define SIZE 12
 //Insertion sort
 int main()
 {
-    int toSort[SIZE] = {2,5,8,23,-11,32,226,-400};
+    int toSort[SIZE] = {2,5,8,23,-11,44,63,32,226,-400,400,4};
     int k = 0,j;
     int pass = 0;
     int swap;
@@ -22,7 +22,7 @@ int main()
           if(toSort[j]>toSort[k])//continue traversing
           {
               j--;
-              if(j = -1)//shift from the starting(start of the list is reached)
+              if(j == -1)//shift from the starting(start of the list is reached)
               {
                   swap = toSort[k];
                   for(j = k;j>0;j--)
@@ -44,6 +44,7 @@ int main()
                 toSort[j] = toSort[j-1];
             }
             toSort[b] = swap;
+            if(j!=k){pass++;}
             break;
           }
           else
