@@ -33,7 +33,7 @@ int main()
         {
             if(priority(t)<=priority(st.top()))
             {
-            while(!st.empty())
+            while(!st.empty() && st.top()!='(')
             {
                 out.push(st.top());
                 st.pop();
@@ -48,6 +48,16 @@ int main()
         else{
             st.push(t);
         }
+        }
+        else if(t == ')')
+        {
+            cout<<"Got here";
+           while(st.top()!='(')
+           {
+              out.push(st.top());
+              st.pop();
+           }
+           st.pop();
         }
         else{
             out.push(t);
