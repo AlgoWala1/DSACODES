@@ -27,7 +27,17 @@ int main()
     for (i = 0;i < instring.length();i++)
     {
         t = instring[i];
-       if(t == '+' || t == '-' || t == '*'||t == '/')
+        if(t == ')')
+        {
+           cout<<"Got here";
+           while(st.top()!='(')
+           {
+              out.push(st.top());
+              st.pop();
+           }
+           st.pop();
+        }
+       else if(t == '+' || t == '-' || t == '*'||t == '/')
         {
         if (!st.empty())
         {
@@ -49,16 +59,6 @@ int main()
             st.push(t);
         }
         }
-        else if(t == ')')
-        {
-            cout<<"Got here";
-           while(st.top()!='(')
-           {
-              out.push(st.top());
-              st.pop();
-           }
-           st.pop();
-        }
         else{
             out.push(t);
         }
@@ -79,3 +79,4 @@ int main()
         rev.pop();
     }
 }
+  
