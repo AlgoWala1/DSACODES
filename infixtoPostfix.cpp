@@ -43,7 +43,7 @@ int main()
         {
             if(priority(t)<=priority(st.top()))
             {
-            while(!st.empty() && st.top()!='(')
+            while(!st.empty())
             {
                 out.push(st.top());
                 st.pop();
@@ -79,4 +79,3 @@ int main()
         rev.pop();
     }
 }
-  
