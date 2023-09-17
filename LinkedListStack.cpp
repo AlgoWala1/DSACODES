@@ -1,7 +1,8 @@
 #include<iostream>
 using namespace std;
-
+#define SIZE 5
 class LinkedListStack{
+    static int top;
     int data;
     LinkedListStack* next;
     public:
@@ -12,13 +13,24 @@ class LinkedListStack{
     }
     void push(LinkedListStack* &head,int data)
     {
+        if(top == SIZE)
+        {
+            cout<<"Stack overflow"<<endl;
+            return;
+        }
         LinkedListStack *t = new LinkedListStack(data);
         t->next = head;
         head = t;
+        top++;
     }
-    void pop(LinkedListStack *head)
+    void pop(LinkedListStack* &head)
     {
+        if(top == 0)
+        {
+            cout<<"Stack underflow"<<endl;
+        }
         head=head->next;
+        top--;
     }
     void print(LinkedListStack *head)
     {
@@ -32,9 +44,10 @@ class LinkedListStack{
         cout<<endl;
     }
 };
-
+int LinkedListStack::top = 1;
 int main()
 {
+    
     LinkedListStack *head= new LinkedListStack(5);
     head->print(head);
     head->push(head,4);
