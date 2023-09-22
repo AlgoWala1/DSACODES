@@ -27,7 +27,6 @@ class CircularLinkedList{
         temp->next = head;
         walker->next = temp;//end of list is reached;
     }
-    
     void printList(node *head)
     {
         node *walker;
@@ -59,6 +58,21 @@ class CircularLinkedList{
         walker->next = add;
         add->next = temp;
     }
+    //For middle
+    void deletePos(node *head,int pos)
+    {
+        int walkerpos = 0;
+        node *nex;
+        node *walker = head;
+        while(walkerpos!=pos-1)
+        {
+            walker = walker->next;
+            walkerpos++;
+        }
+        nex = walker->next;
+        nex = nex->next;
+        walker->next = nex;
+    }
 };
 int main()
 {
@@ -71,6 +85,7 @@ int main()
     link.printList(head);
     link.insert(head,2,4);
     link.printList(head);
-    //link.insertAthead(head,32);
-   // link.printList(head);
+    link.deletePos(head,2);
+    link.printList(head);
+    
 }
