@@ -31,19 +31,12 @@ int main()
         {
         if (!st.empty())
         {
-            if(priority(t)<=priority(st.top()))
-            {
-            while(!st.empty())
+            while(!st.empty() && priority(t)<=priority(st.top()) )
             {
                 out.push(st.top());
                 st.pop();
             }
             st.push(t);
-            }
-            else
-            {
-                st.push(t);
-            }
         }
         else{
             st.push(t);
