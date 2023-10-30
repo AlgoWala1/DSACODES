@@ -42,7 +42,8 @@ class binTree{
         values.push(root);
         while(!values.empty())
         {
-            walker = values.pop();
+            walker = values.front();
+            values.pop();
             if(walker->left)
             {
                 values.push(walker->left);
@@ -53,6 +54,13 @@ class binTree{
             }
             cout<<walker->data<<" ";
         }
+    }
+    bool searchTree(binTree *tree,int key)
+    {
+        if(tree == NULL)return false;
+        if(tree->data>key)return searchTree(tree->left,key);
+        if(tree->data<key)return searchTree(tree->right,key);
+        if(tree->data == key)return true;
     }
     binTree(int value)
     {
@@ -70,4 +78,12 @@ int main()
     root->insert(root,6);
     root->insert(root,14);
     root->print(root);
+    cout<<endl;
+    if(root->searchTree(root,3))
+    {
+    cout<<"Found";
+    }
+    else{
+        cout<<"Not found";
+    }
 }
