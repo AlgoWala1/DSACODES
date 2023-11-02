@@ -92,7 +92,7 @@ class binTree{
         }
         //The Element we are of concern is walker2->right
         int swap;
-        swap = walker->right->data;
+        swap = walker2->right->data;
         walker->data = swap;
         walker2->right = NULL;
     }
@@ -113,6 +113,9 @@ int main()
     root->insert(root,1);
     root->insert(root,6);
     root->insert(root,14);
+    root->insert(root,20);
+    root->insert(root,2);
+    root->insert(root,-1);
     root->print(root);
     cout<<endl;
     if(root->searchTree(root,3))
@@ -127,3 +130,4 @@ int main()
     root->Delete(root,3);
     root->print(root);
 }
+
