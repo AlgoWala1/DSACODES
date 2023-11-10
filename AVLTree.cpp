@@ -1,5 +1,6 @@
 #include <iostream>
 #include<queue>
+#include<math.h>
 using namespace std;
 //binary tree
 class AVLTree{
@@ -35,6 +36,13 @@ class AVLTree{
          }
         }
     }
+    void balanceFactor(AVLTree *root)
+    {
+        int right = heights(root->right);
+        int left = heights(root->left);
+        cout<<endl;
+        cout<<"Balanced factor of root is "<<left - right;
+    }
     void print(AVLTree *root)
     {
         queue<AVLTree *> values;
@@ -55,11 +63,14 @@ class AVLTree{
             cout<<walker->data<<" ";
         }
     }
-    int heights(AVLTree *root,int key)//For calculation height
+    int heights(AVLTree *root)//For calculation of height
     {
-        
+        if(root == NULL)
+        {
+            return 0;
+        }
+        return 1+max(heights(root->left),heights(root->right));
     }
-    int height()
     AVLTree(int value)
     {
         data = value;
@@ -77,4 +88,5 @@ int main()
     root->insert(root,14);
     root->print(root);
     cout<<endl;
+    root->balanceFactor(root);
 }
